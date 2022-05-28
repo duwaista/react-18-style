@@ -1,8 +1,8 @@
-const path = require('path');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+import path from 'path';
+import HtmlWebPackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-module.exports = {
+const config = {
   plugins: [
     new HtmlWebPackPlugin({
       template: './public/index.html',
@@ -10,15 +10,15 @@ module.exports = {
     new MiniCssExtractPlugin(),
   ],
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(process.cwd(), 'dist'),
     filename: '[chunkhash].bundle.js',
     publicPath: '/',
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
-    modules: [path.join(__dirname, 'src'), 'node_modules'],
+    modules: [path.join(process.cwd(), 'src'), 'node_modules'],
     alias: {
-      react: path.join(__dirname, 'node_modules', 'react'),
+      react: path.join(process.cwd(), 'node_modules', 'react'),
     },
   },
   module: {
@@ -52,3 +52,5 @@ module.exports = {
     historyApiFallback: true,
   },
 };
+
+export default config;

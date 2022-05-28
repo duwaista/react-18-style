@@ -17,6 +17,7 @@
   "bugs": {
     "url": "https://github.com/duwaista/react-18-style/issues"
   },
+	"type": "module",
   "homepage": "https://github.com/duwaista/react-18-style#readme",
   "dependencies": {
     "axios": "^0.27.2",
